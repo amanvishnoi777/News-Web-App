@@ -32,7 +32,7 @@ class news extends React.Component {
 
   async updateNews(page){
     this.props.setProgress(0);
-    let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=7bcda2a4c76d46d7b271493963348f00&pageSize=${this.props.pageSize}&page=${page}`
+    let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${process.env.KEY}&pageSize=${this.props.pageSize}&page=${page}`
     let data = await fetch(url);
     let parsedData = await data.json();
     this.setState({articles:parsedData.articles
